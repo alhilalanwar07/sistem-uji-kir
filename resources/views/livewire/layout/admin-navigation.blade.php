@@ -18,8 +18,9 @@ new class extends Component {
         <div class="sidebar-logo">
             <!-- Logo Header -->
             <div class="logo-header" data-background-color="dark">
-                <a href="#" class="logo">
-                    <img src="{{ url('/') }}/assets/img/logo/koltim-2.png" alt="kolaka timur" height="30" />
+                <a href="#" class="logo text-white">
+                    SI - UJI KIR
+                    <!-- <img src="{{ url('/') }}/assets/img/logo/android-chrome-192x192.png" alt="kolaka timur" height="30" /> -->
                 </a>
                 <div class="nav-toggle">
                     <button class="btn btn-toggle toggle-sidebar">
@@ -50,11 +51,53 @@ new class extends Component {
                         </span>
                         <h4 class="text-section">Masters</h4>
                     </li>
+                    <li class="nav-item {{ Route::is('kendaraan') ? 'active text-info' : '' }}">
+                        <a class="nav-link" href="{{ route('kendaraan') }}" wire:navigate>
+                            <i class="fas fa-car"></i>
+                            <p>Data Kendaraan</p>
+                        </a>
+                    </li>
+                    <li class="nav-item {{ Route::is('parameter') ? 'active text-info' : '' }}">
+                        <a class="nav-link" href="{{ route('parameter') }}" wire:navigate>
+                            <i class="fas fa-list"></i>
+                            <p>Parameter Uji</p>
+                        </a>
+                    </li>
+                    <li class="nav-item {{ Route::is('aturan') ? 'active text-info' : '' }}">
+                        <a class="nav-link" href="{{ route('aturan') }}" wire:navigate>
+                            <i class="fas fa-book"></i>
+                            <p>Aturan</p>
+                        </a>
+                    </li>
                     <li class="nav-section">
                         <span class="sidebar-mini-icon">
                             <i class="fa fa-ellipsis-h"></i>
                         </span>
                         <h4 class="text-section">Proses</h4>
+                    </li>
+                    <li class="nav-item {{ Route::is('uji') ? 'active text-info' : '' }}">
+                        <a class="nav-link" href="{{ route('uji') }}" wire:navigate>
+                            <i class="fas fa-flask"></i>
+                            <p>Uji KIR</p>
+                        </a>
+                    </li>
+                    <li class="nav-section">
+                        <span class="sidebar-mini-icon">
+                            <i class="fa fa-ellipsis-h"></i>
+                        </span>
+                        <h4 class="text-section">Output</h4>
+                    </li>
+                    <li class="nav-item {{ Route::is('hasiluji') ? 'active text-info' : '' }}">
+                        <a class="nav-link" href="{{ route('hasiluji') }}" wire:navigate>
+                            <i class="fas fa-file-alt"></i>
+                            <p>Hasil Uji</p>
+                        </a>
+                    </li>
+                    <li class="nav-section">
+                        <span class="sidebar-mini-icon">
+                            <i class="fa fa-ellipsis-h"></i>
+                        </span>
+                        <h4 class="text-section">Settings</h4>
                     </li>
                     @if(auth()->user()->role == 'admin')
                     <li class="nav-item {{ Route::is('admin.manajemen-user') ? 'active text-info' : '' }}">

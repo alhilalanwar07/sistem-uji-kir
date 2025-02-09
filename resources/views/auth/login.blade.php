@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
+<html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- Primary Meta Tags -->
@@ -9,7 +8,7 @@
     <meta name="title" content="{{ config('app.name') }}">
     <meta name="author" content="Themesberg">
     <meta name="description" content="{{ config('app.name') }}">
-    <meta name="keywords" content="sistem, informasi, funsional, spj" />
+    <meta name="keywords" content="sistem, informasi, spk, certainty factor" />
     <link rel="canonical" href="{{ url('/') }}">
 
     <!-- Open Graph / Facebook -->
@@ -44,47 +43,166 @@
     <!-- Volt CSS -->
     <link type="text/css" href="{{ url('/') }}/css/volt.css" rel="stylesheet">
 
-    <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
+    <!-- Tambahan Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- font awasome free -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        :root {
+            --gradient-1: #ff6b6b;
+            --gradient-2: #4ecdc4;
+            --gradient-3: #45b7d1;
+        }
 
+        body {
+            background: linear-gradient(-45deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            height: 100vh;
+            margin: 0;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .login-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            transform: perspective(1000px) rotateY(0deg);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .login-card:hover {
+            transform: perspective(1000px) rotateY(5deg);
+        }
+
+        .login-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, 
+                rgba(255,255,255,0.2), 
+                transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        .input-group {
+            transition: transform 0.3s ease;
+        }
+
+        .input-group:hover {
+            transform: translateY(-2px);
+        }
+
+        .form-control {
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.9);
+        }
+
+        .form-control:focus {
+            border-color: var(--gradient-2);
+            box-shadow: 0 0 15px rgba(78, 205, 196, 0.3);
+        }
+
+        .btn-magic {
+            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
+            border: none;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s;
+            border-radius: 50px;
+            padding: 15px 30px;
+        }
+
+        .btn-magic:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-magic::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255,255,255,0.3),
+                transparent
+            );
+            transition: all 0.5s;
+        }
+
+        .btn-magic:hover::after {
+            left: 100%;
+        }
+
+        .icon-3d {
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+        }
+
+        .icon-3d:hover {
+            transform: rotate(15deg) scale(1.1);
+        }
+    </style>
 </head>
 
 <body>
-
-    <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
-
     <main>
-
-        <!-- Section -->
-        <section class="vh-lg-100 mt-5 mt-lg-0 bg-soft d-flex align-items-center">
+        <section class="vh-100 d-flex align-items-center justify-content-center">
             <div class="container">
-                <p class="text-center">
-                    <a href="{{ url('/home') }}" class="d-flex align-items-center justify-content-center">
-                        <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"></path>
-                        </svg>
-                        Back to homepage
-                    </a>
-                </p>
-                <div class="row justify-content-center form-bg-image" data-background-lg="{{ url('/') }}/assets/img/illustrations/signin.svg">
-                    <div class="col-12 d-flex align-items-center justify-content-center">
-                        <div class="bg-white shadow border-0 rounded border-light p-4 p-lg-5 w-100 fmxw-500">
-                            <div class="text-center text-md-center mb-4 mt-md-0">
-                                <h1 class="mb-0 h3">{{ config('app.name') }}</h1>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-8 col-lg-6">
+                        <div class="login-card p-5 animate__animated animate__zoomIn">
+                            <div class="text-center mb-5">
+                                <img src="{{ url('/') }}/assets/img/favicon/android-chrome-192x192.png" 
+                                     alt="Logo" 
+                                     class="icon-3d mb-4" 
+                                     width="80"
+                                     data-aos="flip"
+                                     data-aos-duration="1000">
+                                <h1 class="h2 text-gradient font-weight-bold" data-aos="fade-down">
+                                    {{ config('app.name') }}
+                                </h1>
                             </div>
-                            <form class="mt-4" method="POST" action="{{ route('login') }}">
-                            @csrf
-                                <!-- Form -->
-                                <div class="form-group mb-4">
-                                    <label for="email">Your Email</label>
+                            
+                            <form method="POST" action="{{ route('login') }}" class="mt-4">
+                                @csrf
+                                <div class="form-group mb-4" data-aos="fade-right">
+                                    <label for="email" class="form-label">Email</label>
                                     <div class="input-group">
-                                        <span class="input-group-text" id="basic-addon1">
-                                            <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                                            </svg>
+                                        <span class="input-group-text bg-transparent">
+                                            <i class="fas fa-envelope text-gradient-1"></i>
                                         </span>
-                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
+                                        <input id="email" 
+                                               type="email" 
+                                               class="form-control @error('email') is-invalid @enderror" 
+                                               name="email" 
+                                               value="{{ old('email') }}" 
+                                               required 
+                                               autocomplete="email" 
+                                               autofocus>
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -92,47 +210,34 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <!-- End of Form -->
-                                <div class="form-group">
-                                    <!-- Form -->
-                                    <div class="form-group mb-4">
-                                        <label for="password">Your Password</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text" id="basic-addon2">
-                                                <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                                    <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path>
-                                                </svg>
-                                            </span>
-                                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
-                                            @error('password')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <!-- End of Form -->
-                                    <div class="d-flex justify-content-between align-items-top mb-4">
-                                        {{-- <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="remember">
-                                            <label class="form-check-label mb-0" for="remember">
-                                                Remember me
-                                            </label>
-                                        </div> --}}
-                                        <div><a href="./forgot-password.html" class="small text-right">Lost password?</a></div>
+                                <div class="form-group mb-5" data-aos="fade-left">
+                                    <label for="password" class="form-label">Password</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-transparent">
+                                            <i class="fas fa-lock text-gradient-2"></i>
+                                        </span>
+                                        <input id="password" 
+                                               type="password" 
+                                               class="form-control @error('password') is-invalid @enderror" 
+                                               name="password" 
+                                               required 
+                                               autocomplete="current-password">
+                                        @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
-                                <div class="d-grid">
-                                    <button type="submit" class="btn btn-gray-800">Sign in</button>
+
+                                <div class="d-grid" data-aos="zoom-in">
+                                    <button type="submit" class="btn btn-magic text-white">
+                                        <i class="fas fa-sign-in-alt me-2"></i>
+                                        Masuk ke Sistem
+                                    </button>
                                 </div>
                             </form>
-                            <div class="d-flex justify-content-center align-items-center mt-4">
-                                <span class="fw-normal">
-                                    Not registered?
-                                    <a href="./sign-up.html" class="fw-bold">Create account</a>
-                                </span>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -140,48 +245,30 @@
         </section>
     </main>
 
-    <!-- Core -->
+    <!-- Scripts -->
     <script src="{{ url('/') }}/vendor/@popperjs/core/dist/umd/popper.min.js"></script>
     <script src="{{ url('/') }}/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Inisialisasi AOS (Animate On Scroll)
+        AOS.init({
+            duration: 1000,
+            once: true,
+            easing: 'ease-in-out-quad'
+        });
 
-    <!-- Vendor JS -->
-    <script src="{{ url('/') }}/vendor/onscreen/dist/on-screen.umd.min.js"></script>
+        // Tambahkan efek hover dinamis pada card
+        const loginCard = document.querySelector('.login-card');
+        loginCard.addEventListener('mousemove', (e) => {
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+            loginCard.style.transform = `perspective(1000px) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+        });
 
-    <!-- Slider -->
-    <script src="{{ url('/') }}/vendor/nouislider/distribute/nouislider.min.js"></script>
-
-    <!-- Smooth scroll -->
-    <script src="{{ url('/') }}/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
-
-    <!-- Charts -->
-    <script src="{{ url('/') }}/vendor/chartist/dist/chartist.min.js"></script>
-    <script src="{{ url('/') }}/vendor/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
-
-    <!-- Datepicker -->
-    <script src="{{ url('/') }}/vendor/vanillajs-datepicker/dist/js/datepicker.min.js"></script>
-
-    <!-- Sweet Alerts 2 -->
-    <script src="{{ url('/') }}/vendor/sweetalert2/dist/sweetalert2.all.min.js"></script>
-
-    <!-- Moment JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
-
-    <!-- Vanilla JS Datepicker -->
-    <script src="{{ url('/') }}/vendor/vanillajs-datepicker/dist/js/datepicker.min.js"></script>
-
-    <!-- Notyf -->
-    <script src="{{ url('/') }}/vendor/notyf/notyf.min.js"></script>
-
-    <!-- Simplebar -->
-    <script src="{{ url('/') }}/vendor/simplebar/dist/simplebar.min.js"></script>
-
-    <!-- Github buttons -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    
-    <!-- Volt JS -->
-    <script src="{{ url('/') }}/assets/js/volt.js"></script>
-
-
+        loginCard.addEventListener('mouseleave', () => {
+            loginCard.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)';
+        });
+    </script>
 </body>
-
 </html>

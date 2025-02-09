@@ -55,9 +55,8 @@ new class extends Component {
             $this->dispatch('errorAlertToast', $e->getMessage());
         }
     }
-}; ?>
+}; ?>   
 
-<div>
 <div>
     <div class="col-md-12">
         <div class="card card-round">
@@ -157,5 +156,4 @@ new class extends Component {
         </div>
     </div>
     <livewire:_alert />
-</div>
 </div>

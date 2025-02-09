@@ -30,10 +30,11 @@
                     , timer: 2000
                     , timerProgressBar: true
                 });
+                setTimeout(function() { window.location.reload(); }, 1000);
+                
                 const modal = bootstrap.Modal.getInstance(document.getElementById('modalEdit'));
                 modal.hide();
 
-                setTimeout(function() { window.location.reload(); }, 2000);
 
             });
 
@@ -55,10 +56,11 @@
                     , timer: 2000
                     , timerProgressBar: true
                 });
+                setTimeout(function() { window.location.reload(); }, 1000);
+
                 const modal = bootstrap.Modal.getInstance(document.getElementById('modalTambah'));
                 modal.hide();
 
-                setTimeout(function() { window.location.reload(); }, 2000);
 
             });
 

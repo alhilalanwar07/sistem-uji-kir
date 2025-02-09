@@ -45,4 +45,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function uji()
+    {
+        return $this->hasMany(Uji::class, 'user_id');
+    }
 }

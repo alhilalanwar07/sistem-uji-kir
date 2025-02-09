@@ -30,7 +30,7 @@
                     <!-- Logo Header -->
                     <div class="logo-header" data-background-color="white">
                         <a href="#" class="logo">
-                            <img src="{{ url('/') }}/assets/img/logo/logo_light.svg" alt="navbar brand" class="navbar-brand" height="20" />
+                            <img src="{{ url('/') }}/assets/img/logo/favicon-32x32.png" alt="navbar brand" class="navbar-brand" height="20" />
                         </a>
                         <div class="nav-toggle">
                             <button class="btn btn-toggle toggle-sidebar">
@@ -58,8 +58,8 @@
             <footer class="footer">
                 <div class="container-fluid d-flex justify-content-between">
                     <div class="copyright">
-                        2024, made with <i class="fa fa-heart heart text-danger"></i> by
-                        <a href="#">KOMINFO</a>
+                        {{ date('Y')}}, made with <i class="fa fa-heart heart text-danger"></i> by
+                        <a href="#">TIARA</a>
                     </div>
                 </div>
             </footer>
@@ -105,6 +105,5 @@
     @stack('script')
     @stack('scripts')
     @livewireScripts
-    @livewireChartsScripts
 </body>
 </html>

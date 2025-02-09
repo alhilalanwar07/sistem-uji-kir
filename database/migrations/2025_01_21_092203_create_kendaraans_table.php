@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('alamat_pemilik');
             $table->string('no_telepon_pemilik');
             $table->string('status_kir')->default('aktif');
+            // user_id
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
